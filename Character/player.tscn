@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dxfmbsox0n5sh"]
+[gd_scene load_steps=29 format=3 uid="uid://dxfmbsox0n5sh"]
 
 [ext_resource type="Texture2D" uid="uid://vexelajr2u5p" path="res://Art/Medieval King Pack 2/Sprites/Idle.png" id="1_w51g2"]
 [ext_resource type="Script" path="res://Character/player.gd" id="1_xocit"]
@@ -36,6 +36,22 @@ region = Rect2(960, 0, 160, 111)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vl6m"]
 atlas = ExtResource("1_w51g2")
 region = Rect2(1120, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjdqf"]
+atlas = ExtResource("3_0433t")
+region = Rect2(0, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn0a3"]
+atlas = ExtResource("3_0433t")
+region = Rect2(160, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id71t"]
+atlas = ExtResource("3_0433t")
+region = Rect2(0, 0, 160, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xphx1"]
+atlas = ExtResource("3_0433t")
+region = Rect2(160, 0, 160, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5do6g"]
 atlas = ExtResource("3_0433t")
@@ -110,13 +126,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kjdqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn0a3")
+}],
+"loop": false,
+"name": &"jump_end",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id71t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xphx1")
+}],
+"loop": true,
+"name": &"jump_loop",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5do6g")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_36wu4")
 }],
-"loop": true,
-"name": &"jump",
+"loop": false,
+"name": &"jump_start",
 "speed": 10.0
 }, {
 "frames": [{
@@ -158,11 +196,11 @@ script = ExtResource("1_xocit")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p751o")
-animation = &"jump"
+animation = &"jump_loop"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.317066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 25)
 shape = SubResource("CapsuleShape2D_n2o7g")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
