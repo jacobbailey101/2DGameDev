@@ -51,7 +51,7 @@ func update_animation():
 				animated_sprite.play("idle")
 			
 func update_facing_direction():
-	if direction .x > 0:
+	if direction.x > 0:
 		animated_sprite.flip_h = false
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
