@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 200.0
+@export var move_speed : float = 200.0
 @export var jump_velocity : float = -230.0
+@export var dash_speed : float = 40000
+@export var dash_duration : float = 0.2
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var dash = $ash
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -32,9 +35,9 @@ func _physics_process(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
 	
 	if direction.x != 0 && animated_sprite.animation != "jump_end":
-		velocity.x = direction.x * speed
+		velocity.x = direction.x * move_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, move_speed)
 
 	move_and_slide()
 	update_animation()
@@ -72,3 +75,8 @@ func _on_animated_sprite_2d_animation_finished():
 		animation_locked = false
 	elif(animated_sprite.animation == "jump_start"):
 		animation_locked = false
+		
+	if Input.is_action_just_pressed("dash"):
+		dash.start_dash(dash_duration)
+		
+	var speed = dash_speed if dash.is_dashing() else move_speed

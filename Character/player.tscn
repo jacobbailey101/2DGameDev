@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dxfmbsox0n5sh"]
+[gd_scene load_steps=39 format=3 uid="uid://dxfmbsox0n5sh"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_xocit"]
 [ext_resource type="Texture2D" uid="uid://dmugr5j7c5jku" path="res://Art/Warrior/SpriteSheet/Warrior_Sheet-Effect.png" id="2_gky4c"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://couf8ratlyxse" path="res://Art/Warrior/Individual Sprite/Run/Warrior_Run_6.png" id="11_eofeu"]
 [ext_resource type="Texture2D" uid="uid://dvko2p2s73vbd" path="res://Art/Warrior/Individual Sprite/Run/Warrior_Run_7.png" id="12_ugpbo"]
 [ext_resource type="Texture2D" uid="uid://bsl776cgudey4" path="res://Art/Warrior/Individual Sprite/Run/Warrior_Run_8.png" id="13_0fnh4"]
+[ext_resource type="PackedScene" uid="uid://chub6cc0iqbrm" path="res://Character/dash.tscn" id="14_wfqlu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8lej"]
 atlas = ExtResource("2_gky4c")
@@ -220,5 +221,7 @@ centered = false
 position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_n2o7g")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Dash" parent="." instance=ExtResource("14_wfqlu")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
