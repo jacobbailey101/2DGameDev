@@ -3,44 +3,52 @@ extends CharacterBody2D
 
 @export var move_speed : float = 200.0
 @export var jump_velocity : float = -230.0
-@export var dash_speed : float = 40000
+@export var dash_speed : float = 50000
 @export var dash_duration : float = 0.2
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var dash = $ash
+@onready var dash = $Dash
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air :bool = false
+var on_ladder :bool = false
 
 func _physics_process(delta):
+	print(on_ladder)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		was_in_air = true
-	else:
-		if was_in_air == true:
-			land()
+#	else:
+#		if was_in_air == true:
+#			land()
 			
 		was_in_air = false
+		
+	if Input.is_action_just_pressed("dash"):
+		dash.start_dash(dash_duration)
+		
+	var speed = dash_speed if dash.is_dashing() else move_speed
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jump()
+		velocity.y = jump_velocity
+		#jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction.x != 0 && animated_sprite.animation != "jump_end":
-		velocity.x = direction.x * move_speed
+	if direction.x != 0:
+		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
-
-	move_and_slide()
 	update_animation()
+	move_and_slide()
+	
 	update_facing_direction()
 	
 func update_animation():
@@ -59,24 +67,27 @@ func update_facing_direction():
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
 		
-func jump():
-	velocity.y = jump_velocity
-	animated_sprite.play("jump_start")
-	animation_locked = true
-	
-func land():
-	animated_sprite.play("jump_end")
-	animation_locked = true
+#func jump():
+#	velocity.y = jump_velocity
+#	animated_sprite.play("jump_start")
+#	animation_locked = true
+#
+#func land():
+#	animated_sprite.play("jump_end")
+#	animation_locked = true
 		
 
+#
+#func _on_animated_sprite_2d_animation_finished():
+#	if(animated_sprite.animation == "jump_end"):
+#		animation_locked = false
+#	elif(animated_sprite.animation == "jump_start"):
+#		animation_locked = false
 
-func _on_animated_sprite_2d_animation_finished():
-	if(animated_sprite.animation == "jump_end"):
-		animation_locked = false
-	elif(animated_sprite.animation == "jump_start"):
-		animation_locked = false
-		
-	if Input.is_action_just_pressed("dash"):
-		dash.start_dash(dash_duration)
-		
-	var speed = dash_speed if dash.is_dashing() else move_speed
+
+func _on_ladder_checker_body_entered(body):
+	on_ladder = true
+
+
+func _on_ladder_checker_body_exited(body):
+	on_ladder = false
