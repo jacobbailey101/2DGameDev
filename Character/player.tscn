@@ -215,12 +215,12 @@ script = ExtResource("1_xocit")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-28, -24)
 sprite_frames = SubResource("SpriteFrames_6gg4j")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 1)
+position = Vector2(-2, 3)
 shape = SubResource("CapsuleShape2D_n2o7g")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -228,7 +228,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="LadderChecker" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 254
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderChecker"]
 position = Vector2(0, 4)

@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var move_speed : float = 200.0
 @export var jump_velocity : float = -230.0
-@export var dash_speed : float = 50000
+@export var dash_speed : float = 500
 @export var dash_duration : float = 0.2
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
