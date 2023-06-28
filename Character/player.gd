@@ -28,7 +28,7 @@ func _physics_process(delta):
 			
 		was_in_air = false
 		
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
 		dash.start_dash(dash_duration)
 		
 	var speed = dash_speed if dash.is_dashing() else move_speed
