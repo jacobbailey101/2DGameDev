@@ -84,10 +84,3 @@ func update_facing_direction():
 #	elif(animated_sprite.animation == "jump_start"):
 #		animation_locked = false
 
-
-func _on_ladder_checker_body_entered(body):
-	on_ladder = true
-
-
-func _on_ladder_checker_body_exited(body):
-	on_ladder = false

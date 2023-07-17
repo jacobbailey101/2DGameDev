@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dxfmbsox0n5sh"]
+[gd_scene load_steps=39 format=3 uid="uid://dxfmbsox0n5sh"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_xocit"]
 [ext_resource type="Texture2D" uid="uid://dmugr5j7c5jku" path="res://Art/Warrior/SpriteSheet/Warrior_Sheet-Effect.png" id="2_gky4c"]
@@ -206,9 +206,6 @@ animations = [{
 radius = 6.0
 height = 32.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4ned"]
-size = Vector2(4, 30)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xocit")
 
@@ -226,14 +223,4 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Dash" parent="." instance=ExtResource("14_wfqlu")]
 
-[node name="LadderChecker" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderChecker"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_h4ned")
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="LadderChecker" to="." method="_on_ladder_checker_body_entered"]
-[connection signal="body_exited" from="LadderChecker" to="." method="_on_ladder_checker_body_exited"]
