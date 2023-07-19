@@ -212,7 +212,7 @@ script = ExtResource("1_xocit")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-28, -24)
 sprite_frames = SubResource("SpriteFrames_6gg4j")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
 centered = false
 

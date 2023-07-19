@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name player
 
 @export var move_speed : float = 200.0
 @export var jump_velocity : float = -230.0
@@ -63,8 +63,10 @@ func update_animation():
 			
 func update_facing_direction():
 	if direction.x > 0:
+		animated_sprite.position = Vector2(-28,-24)
 		animated_sprite.flip_h = false
 	elif direction.x < 0:
+		animated_sprite.position = Vector2(-40,-24)
 		animated_sprite.flip_h = true
 		
 #func jump():
@@ -83,4 +85,8 @@ func update_facing_direction():
 #		animation_locked = false
 #	elif(animated_sprite.animation == "jump_start"):
 #		animation_locked = false
+
+func _input(event : InputEvent):
+	if(event.is_action_pressed("down") && is_on_floor()):
+		position.y += 1 
 
