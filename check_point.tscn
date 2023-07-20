@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://biqw1dt14r3ea"]
+
+[ext_resource type="Script" path="res://CheckPoint.gd" id="1_3dbfp"]
+[ext_resource type="Texture2D" uid="uid://blc2ljk3frl6c" path="res://Art/kenney_pixel-platformer/Tiles/tile_0111.png" id="2_2io82"]
+[ext_resource type="Texture2D" uid="uid://diyattukel8qo" path="res://Art/kenney_pixel-platformer/Tiles/tile_0112.png" id="3_jcfie"]
+[ext_resource type="Texture2D" uid="uid://cvt5uiey84gu" path="res://Art/kenney_pixel-platformer/Tiles/tile_0131.png" id="4_dge4e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6ckl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2io82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jcfie")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgqv"]
+size = Vector2(20, 37)
+
+[node name="CheckPoint" type="Node2D"]
+script = ExtResource("1_3dbfp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Waving Flag" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_e6ckl")
+autoplay = "default"
+frame_progress = 0.976734
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hkgqv")
+
+[node name="FlagPole" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, 9)
+texture = ExtResource("4_dge4e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

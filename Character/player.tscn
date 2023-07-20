@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dxfmbsox0n5sh"]
+[gd_scene load_steps=40 format=3 uid="uid://dxfmbsox0n5sh"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_xocit"]
 [ext_resource type="Texture2D" uid="uid://dmugr5j7c5jku" path="res://Art/Warrior/SpriteSheet/Warrior_Sheet-Effect.png" id="2_gky4c"]
@@ -206,13 +206,15 @@ animations = [{
 radius = 6.0
 height = 32.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1epgd"]
+
+[node name="Player" type="CharacterBody2D" groups=["Death"]]
 script = ExtResource("1_xocit")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-28, -24)
 sprite_frames = SubResource("SpriteFrames_6gg4j")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
 centered = false
 
@@ -223,4 +225,11 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Dash" parent="." instance=ExtResource("14_wfqlu")]
 
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_1epgd")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
