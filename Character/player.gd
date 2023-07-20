@@ -16,7 +16,6 @@ var was_in_air :bool = false
 var on_ladder :bool = false
 
 func _physics_process(delta):
-	print(on_ladder)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -90,6 +89,6 @@ func _input(event : InputEvent):
 		position.y += 1 
 		
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("Death"):
+	if area.is_in_group("Spike"):
 		GameManager.move_to_checkpoint()
 

@@ -1,9 +1,13 @@
 extends Node
 
+var level_time = 0.0
+var start_level_msec = 0.0
+
+@onready var level_time_label = %LevelTimeLabel
+
 func _ready():
-	pass
+	start_level_msec = Time.get_ticks_msec()
 	
 func _process(delta):
-	pass
-	if Input.is_action_just_pressed("reset"):
-		GameManager.reset()
+	level_time = Time.get_ticks_msec() - start_level_msec
+	level_time_label.text = str(level_time / 1000.0)

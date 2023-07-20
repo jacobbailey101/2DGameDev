@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgqsjy14kxwje"]
+[gd_scene load_steps=19 format=3 uid="uid://cgqsjy14kxwje"]
 
 [ext_resource type="Script" path="res://Levels/test_level.gd" id="1_1u0ed"]
 [ext_resource type="Texture2D" uid="uid://clasyt802ds53" path="res://Art/kenney_pixel-platformer/Tiles/tile_0118.png" id="1_lb6vk"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dxfmbsox0n5sh" path="res://Character/player.tscn" id="3_s3h0c"]
 [ext_resource type="Texture2D" uid="uid://vbeh73184b2q" path="res://Art/kenney_pixel-platformer/Tiles/tile_0155.png" id="4_yhse5"]
 [ext_resource type="PackedScene" uid="uid://csvefaxfovf14" path="res://spike.tscn" id="9_3d3wb"]
-[ext_resource type="PackedScene" uid="uid://biqw1dt14r3ea" path="res://check_point.tscn" id="10_1aplf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyhny"]
 texture = ExtResource("2_cx6lv")
@@ -785,7 +784,7 @@ sources/13 = SubResource("TileSetAtlasSource_1w7kn")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r5ev"]
 size = Vector2(126.5, 18)
 
-[node name="World" type="Node2D"]
+[node name="Level 1" type="Node2D" groups=["player"]]
 script = ExtResource("1_1u0ed")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -815,18 +814,6 @@ position = Vector2(585, 594)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="LevelTimeLabel" type="Label" parent="Player/CanvasLayer"]
-unique_name_in_owner = true
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 6.0
-offset_bottom = 33.0
-grow_horizontal = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(585, 594)
 process_callback = 0
@@ -834,8 +821,5 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Spike" parent="." groups=["Player"] instance=ExtResource("9_3d3wb")]
+[node name="Spike" parent="." instance=ExtResource("9_3d3wb")]
 position = Vector2(558, 612)
-
-[node name="CheckPoint" parent="." instance=ExtResource("10_1aplf")]
-position = Vector2(504, 594)

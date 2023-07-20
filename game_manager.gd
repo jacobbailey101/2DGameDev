@@ -17,8 +17,10 @@ func set_checkpoint(c):
 	checkpoint = c
 
 func move_to_checkpoint():
+	var player = get_node("/root/World/Player")
 	if checkpoint:
 		player.global_position = checkpoint.global_position
 	else:
+		checkpoint = null
 		get_tree().reload_current_scene()
 	
