@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bye7oc1enly5u"]
+
+[ext_resource type="Texture2D" uid="uid://bgm77gvxp41jp" path="res://Art/kenney_pixel-platformer/Tilemap/tiles_packed.png" id="1_6fco2"]
+[ext_resource type="Script" path="res://door.gd" id="1_46a0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fd7j"]
+size = Vector2(14, 22)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_46a0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("1_6fco2")
+region_enabled = true
+region_rect = Rect2(180, 103, 18, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_6fd7j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

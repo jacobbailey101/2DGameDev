@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_speed : float = 200.0
 @export var jump_velocity : float = -230.0
@@ -89,6 +90,6 @@ func _input(event : InputEvent):
 		position.y += 1 
 		
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("Spike"):
+	if area.is_in_group("Death"):
 		GameManager.move_to_checkpoint()
 

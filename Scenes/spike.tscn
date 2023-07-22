@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y1kj"]
 size = Vector2(18, 9)
 
-[node name="Spike" type="Area2D" groups=["Spike"]]
+[node name="Spike" type="Area2D" groups=["Death"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)

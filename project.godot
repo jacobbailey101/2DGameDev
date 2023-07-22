@@ -11,16 +11,19 @@ config_version=5
 [application]
 
 config/name="2d Game Dev"
-run/main_scene="res://Levels/test_level.tscn"
+run/main_scene="res://Scenes/start_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://game_manager.gd"
+GameManager="*res://Scenes/game_manager.gd"
+Events="*res://Events.gd"
+Transistions="*res://transistions.tscn"
 
 [display]
 
+window/size/mode=3
 window/stretch/scale=4.0
 
 [input]
