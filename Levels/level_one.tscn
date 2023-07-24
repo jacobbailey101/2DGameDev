@@ -58,7 +58,7 @@ position = Vector2(198, 18)
 rotation = 3.14159
 
 [node name="CheckPoint" parent="." index="16" instance=ExtResource("3_tubw8")]
-position = Vector2(297, 72)
+position = Vector2(504, 72)
 
 [node name="Spike8" parent="." index="17" instance=ExtResource("2_ucqxs")]
 position = Vector2(243, 90)
