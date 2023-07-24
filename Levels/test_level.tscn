@@ -801,7 +801,7 @@ format = 2
 [node name="StaticBody2D" type="StaticBody2D" parent="Tiles One-Way"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
-position = Vector2(243.75, 477)
+position = Vector2(279, 441)
 shape = SubResource("RectangleShape2D_4r5ev")
 one_way_collision = true
 

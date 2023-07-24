@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed : float = 200.0
-@export var jump_velocity : float = -230.0
+@export var jump_velocity : float = -180.0
 @export var dash_speed : float = 500
 @export var dash_duration : float = 0.2
 
@@ -62,10 +62,10 @@ func update_animation():
 			
 func update_facing_direction():
 	if direction.x > 0:
-		animated_sprite.position = Vector2(-28,-24)
+		animated_sprite.position = Vector2(8,-5)
 		animated_sprite.flip_h = false
 	elif direction.x < 0:
-		animated_sprite.position = Vector2(-40,-24)
+		animated_sprite.position = Vector2(-8,-5)
 		animated_sprite.flip_h = true
 		
 #func jump():
