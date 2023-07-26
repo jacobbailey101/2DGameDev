@@ -5,9 +5,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_x5psk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 0, -18, 0, 0, 0, 0, 0, -72)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 27, -18, 0, 0, 0, 0, 27, 0)
 }
-point_count = 5
+point_count = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16a23"]
 atlas = ExtResource("2_taf1s")
@@ -84,7 +84,6 @@ curve = SubResource("Curve2D_x5psk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(0, -72)
-rotation = 1.5708
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D" groups=["Death"]]
 
