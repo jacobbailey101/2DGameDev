@@ -1,22 +1,96 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm6jhq4f7iihh"]
+[gd_scene load_steps=14 format=3 uid="uid://bm6jhq4f7iihh"]
+
+[ext_resource type="Script" path="res://spinning_blade.gd" id="1_cmm1c"]
+[ext_resource type="Texture2D" uid="uid://cae1u5ybsg40x" path="res://Art/Trap/Suriken.png" id="2_taf1s"]
 
 [sub_resource type="Curve2D" id="Curve2D_x5psk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 0, -18, 0, 0, 0, 0, 0, -72)
+}
+point_count = 5
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_13se3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_16a23"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p2xe"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15mxh"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcnso"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvx0i"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ywgv"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66vpw"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vccj4"]
+atlas = ExtResource("2_taf1s")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kws8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16a23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p2xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15mxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcnso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvx0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ywgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66vpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vccj4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13se3"]
+radius = 16.0
 
 [node name="SpinningBlade" type="Node2D"]
+script = ExtResource("1_cmm1c")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_x5psk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -72)
+rotation = 1.5708
 
-[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
-shape = SubResource("CircleShape2D_13se3")
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D" groups=["Death"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Area2D"]
 sprite_frames = SubResource("SpriteFrames_kws8u")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+shape = SubResource("CircleShape2D_13se3")

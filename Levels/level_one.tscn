@@ -1,67 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddn7btkadrt0h"]
+[gd_scene load_steps=6 format=3 uid="uid://ddn7btkadrt0h"]
 
 [ext_resource type="PackedScene" uid="uid://cgqsjy14kxwje" path="res://Levels/test_level.tscn" id="1_txu2b"]
 [ext_resource type="PackedScene" uid="uid://csvefaxfovf14" path="res://Scenes/spike.tscn" id="2_ucqxs"]
 [ext_resource type="PackedScene" uid="uid://biqw1dt14r3ea" path="res://Scenes/check_point.tscn" id="3_tubw8"]
+[ext_resource type="PackedScene" uid="uid://bm6jhq4f7iihh" path="res://spinning_blade.tscn" id="4_bk4gs"]
+
+[sub_resource type="Curve2D" id="Curve2D_qbtkq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 0, -18, 0, 0, 0, 0, 0, -72)
+}
+point_count = 9
 
 [node name="World" instance=ExtResource("1_txu2b")]
 
-[node name="TileMap" parent="." index="0"]
-layer_0/tile_data = PackedInt32Array(262145, 196611, 6, 262144, 65539, 6, 327680, 65539, 6, 393216, 65539, 6, 458752, 65539, 7, 327681, 196611, 6, 458753, 196611, 7, 393217, 196611, 6, 1, 262147, 0, 65537, 196611, 6, 131073, 196611, 6, 196609, 196611, 6, 2, 131075, 7, 3, 131075, 7, 4, 131075, 7, 5, 131075, 7, 6, 131075, 7, 7, 131075, 7, 8, 131075, 7, 9, 131075, 7, -65527, 131075, 1, -65528, 131075, 1, -65529, 131075, 1, -65530, 131075, 1, -65531, 131075, 1, -65532, 131075, 1, -65533, 131075, 1, -65534, 131075, 1, -65535, 131075, 1, 196608, 65539, 6, 131072, 65539, 6, 65536, 65539, 6, 0, 65539, 6, -65536, 65539, 1, -65526, 131075, 1, 10, 131075, 7, 11, 131075, 7, 12, 131075, 7, 13, 131075, 7, 14, 131075, 7, 15, 131075, 7, 16, 131075, 7, 17, 131075, 7, 18, 131075, 7, 19, 196611, 7, -65517, 196611, 1, -65518, 131075, 1, -65519, 131075, 1, -65520, 131075, 1, -65521, 131075, 1, -65522, 131075, 1, -65523, 131075, 1, -65524, 131075, 1, -65525, 131075, 1, 327682, 131075, 0, 327683, 131075, 0, 327684, 131075, 0, 327686, 131075, 0, 327685, 131075, 0, 327688, 131075, 0, 327687, 131075, 0, 327689, 131075, 0, 327690, 131075, 0, 327691, 131075, 0, 327692, 131075, 0, 327693, 131075, 0, 327694, 131075, 0, 327695, 131075, 0, 327696, 131075, 0, 327697, 131075, 0, 327698, 131075, 0, 327699, 131075, 0, 327700, 131075, 0, 327701, 131075, 0, 327702, 131075, 0, 327703, 131075, 0, 327704, 131075, 0, 327706, 131075, 0, 327705, 131075, 0, 327707, 131075, 0, 327708, 131075, 0, 327709, 131075, 0, 327710, 131075, 0, 327711, 131075, 0, 327712, 131075, 0, 327713, 131075, 0, 327714, 131075, 0, 327715, 131075, 0, 327716, 131075, 0, 327717, 131075, 0, 327718, 131075, 0, 327719, 131075, 0, 327720, 131075, 0, 327721, 131075, 0, 327722, 131075, 0, 327723, 131075, 0, 327724, 131075, 0, 327725, 131075, 0, 327726, 131075, 0, 327727, 131075, 0, 327728, 131075, 0, 327729, 131075, 0, 327730, 131075, 0, 327731, 131075, 0, 327732, 196611, 0)
-
-[node name="Player" parent="." index="2"]
+[node name="Player" parent="." index="1"]
 position = Vector2(45, 72)
 
-[node name="Camera2D" parent="." index="3"]
-position = Vector2(45, 72)
-
-[node name="Spike" parent="." index="4" instance=ExtResource("2_ucqxs")]
-position = Vector2(90, 90)
-
-[node name="Spike2" parent="." index="5" instance=ExtResource("2_ucqxs")]
+[node name="Spike2" parent="." index="2" instance=ExtResource("2_ucqxs")]
 position = Vector2(108, 90)
 
-[node name="Spike3" parent="." index="6" instance=ExtResource("2_ucqxs")]
+[node name="Spike3" parent="." index="3" instance=ExtResource("2_ucqxs")]
 position = Vector2(126, 90)
 
-[node name="Spike4" parent="." index="7" instance=ExtResource("2_ucqxs")]
+[node name="Spike4" parent="." index="4" instance=ExtResource("2_ucqxs")]
 position = Vector2(144, 90)
 
-[node name="Spike5" parent="." index="8" instance=ExtResource("2_ucqxs")]
+[node name="Spike5" parent="." index="5" instance=ExtResource("2_ucqxs")]
 position = Vector2(162, 90)
 
-[node name="Spike6" parent="." index="9" instance=ExtResource("2_ucqxs")]
+[node name="Spike6" parent="." index="6" instance=ExtResource("2_ucqxs")]
 position = Vector2(180, 90)
 
-[node name="Spike9" parent="." index="10" instance=ExtResource("2_ucqxs")]
-position = Vector2(108, 18)
-rotation = 3.14159
-
-[node name="Spike10" parent="." index="11" instance=ExtResource("2_ucqxs")]
+[node name="Spike10" parent="." index="7" instance=ExtResource("2_ucqxs")]
 position = Vector2(126, 18)
 rotation = 3.14159
 
-[node name="Spike11" parent="." index="12" instance=ExtResource("2_ucqxs")]
+[node name="Spike11" parent="." index="8" instance=ExtResource("2_ucqxs")]
 position = Vector2(144, 18)
 rotation = 3.14159
 
-[node name="Spike12" parent="." index="13" instance=ExtResource("2_ucqxs")]
+[node name="Spike12" parent="." index="9" instance=ExtResource("2_ucqxs")]
 position = Vector2(162, 18)
 rotation = 3.14159
 
-[node name="Spike13" parent="." index="14" instance=ExtResource("2_ucqxs")]
+[node name="Spike13" parent="." index="10" instance=ExtResource("2_ucqxs")]
 position = Vector2(180, 18)
 rotation = 3.14159
 
-[node name="Spike14" parent="." index="15" instance=ExtResource("2_ucqxs")]
+[node name="Spike14" parent="." index="11" instance=ExtResource("2_ucqxs")]
 position = Vector2(198, 18)
 rotation = 3.14159
 
-[node name="CheckPoint" parent="." index="16" instance=ExtResource("3_tubw8")]
-position = Vector2(504, 72)
+[node name="CheckPoint" parent="." index="12" instance=ExtResource("3_tubw8")]
+position = Vector2(315, 72)
 
-[node name="Spike8" parent="." index="17" instance=ExtResource("2_ucqxs")]
+[node name="SpinningBlade" parent="." index="13" instance=ExtResource("4_bk4gs")]
 position = Vector2(243, 90)
 
-[node name="Spike15" parent="." index="18" instance=ExtResource("2_ucqxs")]
-position = Vector2(225, 90)
+[node name="PathFollow2D" parent="SpinningBlade/Path2D" index="0"]
+rotates = false
+cubic_interp = false
+
+[node name="SpinningBlade2" parent="." index="14" instance=ExtResource("4_bk4gs")]
+position = Vector2(504, 108)
+
+[node name="Path2D" parent="SpinningBlade2" index="0"]
+curve = SubResource("Curve2D_qbtkq")
+
+[node name="PathFollow2D" parent="SpinningBlade2/Path2D" index="0"]
+rotation = 0.0
+
+[node name="Camera2D" parent="." index="15"]
+position = Vector2(45, 72)
+
+[node name="TileMap" parent="." index="16"]
+layer_0/tile_data = PackedInt32Array(262145, 196611, 6, 262144, 65539, 6, 327680, 65539, 6, 393216, 65539, 6, 458752, 65539, 6, 327681, 262147, 1, 458753, 131075, 6, 393217, 131075, 6, 1, 262147, 0, 65537, 196611, 6, 131073, 196611, 6, 196609, 196611, 6, 2, 131075, 7, 3, 131075, 7, 4, 131075, 7, 5, 131075, 7, 6, 131075, 7, 7, 131075, 7, 8, 131075, 7, 9, 131075, 7, -65527, 131075, 1, -65528, 131075, 1, -65529, 131075, 1, -65530, 131075, 1, -65531, 131075, 1, -65532, 131075, 1, -65533, 131075, 1, -65534, 131075, 1, -65535, 131075, 1, 196608, 65539, 6, 131072, 65539, 6, 65536, 65539, 6, 0, 65539, 6, -65536, 65539, 1, -65526, 131075, 1, 10, 131075, 7, 11, 131075, 7, 12, 131075, 7, 13, 131075, 7, 14, 131075, 7, 15, 131075, 7, 16, 131075, 7, 17, 131075, 7, 18, 131075, 7, 19, 196611, 7, -65517, 196611, 1, -65518, 131075, 1, -65519, 131075, 1, -65520, 131075, 1, -65521, 131075, 1, -65522, 131075, 1, -65523, 131075, 1, -65524, 131075, 1, -65525, 131075, 1, 327682, 131075, 1, 327683, 131075, 1, 327684, 131075, 1, 327686, 131075, 1, 327685, 131075, 1, 327688, 131075, 1, 327687, 131075, 1, 327689, 131075, 1, 327690, 131075, 1, 327691, 131075, 1, 327692, 131075, 1, 327693, 131075, 1, 327694, 131075, 1, 327695, 131075, 1, 327696, 131075, 1, 327697, 131075, 1, 327698, 131075, 1, 327699, 131075, 1, 327700, 131075, 1, 327701, 131075, 1, 327702, 131075, 1, 393238, 131075, 6, 393239, 131075, 1, 393240, 196611, 1, 458774, 131075, 6, 458775, 131075, 6, 458776, 262147, 1, 458777, 131075, 1, 458778, 131075, 1, 458779, 131075, 1, 458780, 131075, 1, 524316, 131075, 7, 524315, 131075, 7, 524314, 131075, 7, 524313, 131075, 7, 524312, 131075, 7, 524311, 131075, 7, 524310, 131075, 7, 393218, 131075, 6, 458754, 131075, 6, 524290, 131075, 7, 393219, 131075, 6, 393220, 131075, 6, 393221, 131075, 6, 393222, 131075, 6, 393223, 131075, 6, 393224, 131075, 6, 393225, 131075, 6, 393226, 131075, 6, 393227, 131075, 6, 393228, 131075, 6, 393229, 131075, 6, 393230, 131075, 6, 393231, 131075, 6, 393232, 131075, 6, 393233, 131075, 6, 393234, 131075, 6, 393235, 131075, 6, 393236, 131075, 6, 393237, 131075, 6, 458773, 131075, 6, 458772, 131075, 6, 458771, 131075, 6, 458770, 131075, 6, 458769, 131075, 6, 458768, 131075, 6, 458767, 131075, 6, 458766, 131075, 6, 458765, 131075, 6, 458764, 131075, 6, 458763, 131075, 6, 458762, 131075, 6, 458761, 131075, 6, 458760, 131075, 6, 458759, 131075, 6, 458758, 131075, 6, 458757, 131075, 6, 458756, 131075, 6, 458755, 131075, 6, 524288, 65539, 7, 524289, 131075, 7, 524291, 131075, 7, 524292, 131075, 7, 524293, 131075, 7, 524294, 131075, 7, 524295, 131075, 7, 524296, 131075, 7, 524297, 131075, 7, 524298, 131075, 7, 524299, 131075, 7, 524300, 131075, 7, 524301, 131075, 7, 524302, 131075, 7, 524303, 131075, 7, 524304, 131075, 7, 524305, 131075, 7, 524306, 131075, 7, 524307, 131075, 7, 524308, 131075, 7, 524309, 131075, 7, 131100, 65539, 1, 196636, 65539, 6, 196637, 131075, 6, 131101, 131075, 1, 131102, 131075, 1, 131103, 131075, 1, 131104, 196611, 1, 196640, 196611, 6, 196639, 131075, 6, 196638, 131075, 6, 262172, 65539, 7, 262173, 131075, 7, 262174, 131075, 7, 262175, 131075, 7, 262176, 196611, 7, 458781, 131075, 1, 524317, 131075, 7, 524318, 131075, 7, 458782, 131075, 1, 458783, 131075, 1, 458784, 131075, 1, 458785, 131075, 1, 458786, 131075, 1, 458787, 131075, 1, 458788, 196611, 1, 524324, 196611, 7, 524323, 131075, 7, 524322, 131075, 7, 524321, 131075, 7, 524320, 131075, 7, 524319, 131075, 7)
+
+[editable path="SpinningBlade"]
+[editable path="SpinningBlade2"]

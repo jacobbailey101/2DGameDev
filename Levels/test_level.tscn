@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgqsjy14kxwje"]
+[gd_scene load_steps=25 format=3 uid="uid://cgqsjy14kxwje"]
 
 [ext_resource type="Script" path="res://Levels/test_level.gd" id="1_1u0ed"]
 [ext_resource type="Texture2D" uid="uid://clasyt802ds53" path="res://Art/kenney_pixel-platformer/Tiles/tile_0118.png" id="1_lb6vk"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dxfmbsox0n5sh" path="res://Character/player.tscn" id="3_s3h0c"]
 [ext_resource type="Texture2D" uid="uid://vbeh73184b2q" path="res://Art/kenney_pixel-platformer/Tiles/tile_0155.png" id="4_yhse5"]
 [ext_resource type="FontFile" uid="uid://c1u7oa1vsudnd" path="res://joystix monospace.otf" id="9_jabpf"]
+[ext_resource type="Texture2D" uid="uid://625sjqas2mov" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/sky_fc.png" id="10_1uemw"]
+[ext_resource type="Texture2D" uid="uid://dqij7h8er71ad" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/far_mountains_fc.png" id="11_8g6ur"]
+[ext_resource type="Texture2D" uid="uid://ce8dc5l7rv1dg" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/grassy_mountains_fc.png" id="12_0n7ag"]
+[ext_resource type="Texture2D" uid="uid://dtppwga4i373u" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/clouds_mid_t_fc.png" id="13_imkt3"]
+[ext_resource type="Texture2D" uid="uid://q2fq533wkxhw" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/hill.png" id="14_6xj4u"]
+[ext_resource type="Texture2D" uid="uid://bdbgarlbi1rlh" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/clouds_front_fc.png" id="15_dv7dh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyhny"]
 texture = ExtResource("2_cx6lv")
@@ -787,23 +793,49 @@ size = Vector2(126.5, 18)
 [node name="World" type="Node2D"]
 script = ExtResource("1_1u0ed")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_dvn86")
-cell_quadrant_size = 18
-format = 2
-layer_0/name = "Ground"
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Tiles One-Way" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_8fwkl")
-cell_quadrant_size = 18
-format = 2
+[node name="Sky" type="ParallaxBackground" parent="ParallaxBackground"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles One-Way"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(616, 382.5)
+scale = Vector2(6.95833, 6.95833)
+texture = ExtResource("10_1uemw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
-position = Vector2(279, 441)
-shape = SubResource("RectangleShape2D_4r5ev")
-one_way_collision = true
+[node name="FarMountains" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains"]
+position = Vector2(616, 382.5)
+scale = Vector2(6.95833, 6.95833)
+texture = ExtResource("11_8g6ur")
+
+[node name="GrassyMountains" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/GrassyMountains"]
+position = Vector2(616, 382.5)
+scale = Vector2(6.95833, 6.95833)
+texture = ExtResource("12_0n7ag")
+
+[node name="CloudsMid" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CloudsMid"]
+position = Vector2(616, 382.5)
+scale = Vector2(6.95833, 6.95833)
+texture = ExtResource("13_imkt3")
+
+[node name="Hill" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Hill"]
+position = Vector2(616, 382.5)
+scale = Vector2(6.95833, 6.95833)
+texture = ExtResource("14_6xj4u")
+
+[node name="CloudsFront" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CloudsFront"]
+position = Vector2(616, 382.5)
+scale = Vector2(6.95833, 6.95833)
+texture = ExtResource("15_dv7dh")
 
 [node name="Player" parent="." instance=ExtResource("3_s3h0c")]
 z_index = 10
@@ -834,3 +866,21 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_dvn86")
+cell_quadrant_size = 18
+format = 2
+layer_0/name = "Ground"
+
+[node name="Tiles One-Way" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8fwkl")
+cell_quadrant_size = 18
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles One-Way"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
+position = Vector2(279, 441)
+shape = SubResource("RectangleShape2D_4r5ev")
+one_way_collision = true
