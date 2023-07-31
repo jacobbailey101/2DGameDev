@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_x5psk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 27, -18, 0, 0, 0, 0, 27, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 0, -18, 0, 0, 0, 0, 0, -72)
 }
 point_count = 10
 
@@ -84,6 +84,8 @@ curve = SubResource("Curve2D_x5psk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(0, -72)
+rotates = false
+cubic_interp = false
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D" groups=["Death"]]
 

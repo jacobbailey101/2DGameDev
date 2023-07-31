@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dlbyewd4ili4i"]
 
-[ext_resource type="Script" path="res://level_transistions.gd" id="1_bbadf"]
+[ext_resource type="Script" path="res://Level Stuff/level_transistions.gd" id="1_bbadf"]
 
 [sub_resource type="Animation" id="Animation_unxdq"]
 resource_name = "ExitLevel"
