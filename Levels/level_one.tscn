@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddn7btkadrt0h"]
+[gd_scene load_steps=8 format=3 uid="uid://ddn7btkadrt0h"]
 
 [ext_resource type="PackedScene" uid="uid://cgqsjy14kxwje" path="res://Levels/test_level.tscn" id="1_txu2b"]
 [ext_resource type="PackedScene" uid="uid://csvefaxfovf14" path="res://Scenes/spike.tscn" id="2_ucqxs"]
 [ext_resource type="PackedScene" uid="uid://biqw1dt14r3ea" path="res://Scenes/check_point.tscn" id="3_tubw8"]
 [ext_resource type="PackedScene" uid="uid://bm6jhq4f7iihh" path="res://spinning_blade.tscn" id="4_bk4gs"]
+[ext_resource type="PackedScene" uid="uid://noub6q0qto88" path="res://hidden_spikes.tscn" id="5_wwsra"]
 
 [sub_resource type="Curve2D" id="Curve2D_43pmq"]
 _data = {
@@ -123,6 +124,9 @@ position = Vector2(1197, 144)
 
 [node name="Spike12" parent="." index="22" instance=ExtResource("2_ucqxs")]
 position = Vector2(1215, 144)
+
+[node name="HiddenSpikes" parent="." index="23" instance=ExtResource("5_wwsra")]
+position = Vector2(261, 86)
 
 [editable path="SpinningBlade"]
 [editable path="SpinningBlade2"]
