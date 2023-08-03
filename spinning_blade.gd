@@ -1,5 +1,5 @@
 extends Node2D
-@export var speed = 0.5
+@export var speed = 0.4
 # Called when the node enters the scene tree for the first time.
 
 

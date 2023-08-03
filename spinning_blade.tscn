@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://spinning_blade.gd" id="1_cmm1c"]
 [ext_resource type="Texture2D" uid="uid://cae1u5ybsg40x" path="res://Art/Trap/Suriken.png" id="2_taf1s"]
 
-[sub_resource type="Curve2D" id="Curve2D_x5psk"]
+[sub_resource type="Curve2D" id="Curve2D_lvrxq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 90, -72, 0, 0, 0, 0, 90, -18, 0, 0, 0, 0, 0, -18, 0, 0, 0, 0, 0, -72)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 117, 0)
 }
-point_count = 10
+point_count = 8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16a23"]
 atlas = ExtResource("2_taf1s")
@@ -80,10 +80,9 @@ radius = 16.0
 script = ExtResource("1_cmm1c")
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_x5psk")
+curve = SubResource("Curve2D_lvrxq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(0, -72)
 rotates = false
 cubic_interp = false
 
