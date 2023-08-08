@@ -846,42 +846,42 @@ script = ExtResource("1_1u0ed")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 position = Vector2(616, 382.5)
-scale = Vector2(6.95833, 6.95833)
+scale = Vector2(7, 7)
 texture = ExtResource("10_1uemw")
 
 [node name="FarMountains" type="ParallaxBackground" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains"]
 position = Vector2(616, 382.5)
-scale = Vector2(6.95833, 6.95833)
+scale = Vector2(7, 7)
 texture = ExtResource("11_8g6ur")
 
 [node name="GrassyMountains" type="ParallaxBackground" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/GrassyMountains"]
 position = Vector2(616, 382.5)
-scale = Vector2(6.95833, 6.95833)
+scale = Vector2(7, 7)
 texture = ExtResource("12_0n7ag")
 
 [node name="CloudsMid" type="ParallaxBackground" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CloudsMid"]
 position = Vector2(616, 382.5)
-scale = Vector2(6.95833, 6.95833)
+scale = Vector2(7, 7)
 texture = ExtResource("13_imkt3")
 
 [node name="Hill" type="ParallaxBackground" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Hill"]
 position = Vector2(616, 382.5)
-scale = Vector2(6.95833, 6.95833)
+scale = Vector2(7, 7)
 texture = ExtResource("14_6xj4u")
 
 [node name="CloudsFront" type="ParallaxBackground" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CloudsFront"]
 position = Vector2(616, 382.5)
-scale = Vector2(6.95833, 6.95833)
+scale = Vector2(7, 7)
 texture = ExtResource("15_dv7dh")
 
 [node name="Player" parent="." instance=ExtResource("3_s3h0c")]

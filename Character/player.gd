@@ -35,6 +35,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		$AudioStreamPlayer.play()
 		#jump()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -92,4 +93,3 @@ func _input(event : InputEvent):
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Death"):
 		GameManager.move_to_checkpoint()
-

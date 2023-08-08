@@ -83,6 +83,7 @@ script = ExtResource("1_cmm1c")
 curve = SubResource("Curve2D_lvrxq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -72)
 rotates = false
 cubic_interp = false
 
