@@ -2,28 +2,28 @@
 
 [ext_resource type="Script" path="res://Level Stuff/PauseMenu.gd" id="1_7nclr"]
 
-[node name="PauseMenu" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7nclr")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="PauseMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.196078, 0.196078, 0.196078, 0.819608)
+color = Color(0.196078, 0.196078, 0.196078, 0.733333)
 
-[node name="CenterContainer" type="CenterContainer" parent="Background"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,29 +31,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Background/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="Background/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PauseMenu/Background/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Background/CenterContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="PauseMenu/Background/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="Background/CenterContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PauseMenu/Background/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume Game
 "
 
-[node name="Quit" type="Button" parent="Background/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PauseMenu/Background/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit
 "
 
-[connection signal="pressed" from="Background/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Background/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PauseMenu/Background/CenterContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Background/CenterContainer/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]

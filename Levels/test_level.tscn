@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgqsjy14kxwje"]
+[gd_scene load_steps=26 format=3 uid="uid://cgqsjy14kxwje"]
 
 [ext_resource type="Script" path="res://Levels/test_level.gd" id="1_1u0ed"]
 [ext_resource type="Texture2D" uid="uid://clasyt802ds53" path="res://Art/kenney_pixel-platformer/Tiles/tile_0118.png" id="1_lb6vk"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dtppwga4i373u" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/clouds_mid_t_fc.png" id="13_imkt3"]
 [ext_resource type="Texture2D" uid="uid://q2fq533wkxhw" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/hill.png" id="14_6xj4u"]
 [ext_resource type="Texture2D" uid="uid://bdbgarlbi1rlh" path="res://Art/Mountain Background/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/clouds_front_fc.png" id="15_dv7dh"]
+[ext_resource type="PackedScene" uid="uid://4mug04odnuqt" path="res://Level Stuff/pause_menu.tscn" id="16_uqcju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyhny"]
 texture = ExtResource("2_cx6lv")
@@ -897,7 +898,7 @@ remote_path = NodePath("../../Camera2D")
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 4.0
-offset_bottom = 22.0
+offset_bottom = 54.0
 grow_horizontal = 2
 
 [node name="LevelTimeLabel" type="Label" parent="CanvasLayer/CenterContainer"]
@@ -931,3 +932,6 @@ format = 2
 position = Vector2(279, 441)
 shape = SubResource("RectangleShape2D_4r5ev")
 one_way_collision = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_uqcju")]
+visible = false

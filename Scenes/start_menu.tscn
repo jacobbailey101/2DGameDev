@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://crbs0idw51r27"]
+[gd_scene load_steps=3 format=3 uid="uid://crbs0idw51r27"]
 
 [ext_resource type="Script" path="res://Scenes/start_menu.gd" id="1_l3bby"]
+
+[sub_resource type="Theme" id="Theme_k36ns"]
 
 [node name="StartMenu" type="CenterContainer"]
 anchors_preset = 15
@@ -14,7 +16,9 @@ script = ExtResource("1_l3bby")
 layout_mode = 2
 
 [node name="StartGameButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = SubResource("Theme_k36ns")
 text = "Start Game"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]

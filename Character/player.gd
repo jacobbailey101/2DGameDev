@@ -37,7 +37,9 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 		$AudioStreamPlayer.play()
 		#jump()
-
+	if Input.is_action_just_released("jump"):
+		if velocity.y < -100:
+			velocity.y = -100
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")

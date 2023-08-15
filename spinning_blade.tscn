@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://spinning_blade.gd" id="1_cmm1c"]
 [ext_resource type="Texture2D" uid="uid://cae1u5ybsg40x" path="res://Art/Trap/Suriken.png" id="2_taf1s"]
 
-[sub_resource type="Curve2D" id="Curve2D_lvrxq"]
+[sub_resource type="Curve2D" id="Curve2D_023l4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 0, -72, 0, 0, 0, 0, 117, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
 }
-point_count = 8
+point_count = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16a23"]
 atlas = ExtResource("2_taf1s")
@@ -78,12 +78,12 @@ radius = 16.0
 
 [node name="SpinningBlade" type="Node2D"]
 script = ExtResource("1_cmm1c")
+speed = 0.2
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_lvrxq")
+curve = SubResource("Curve2D_023l4")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(0, -72)
 rotates = false
 cubic_interp = false
 

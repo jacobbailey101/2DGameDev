@@ -11,4 +11,4 @@ func _ready():
 func _process(delta):
 	level_time = Time.get_ticks_msec() - start_level_msec
 	level_time_label.text = "%.2f" % [level_time / 1000.0] 
-	#print("Number %.2f" % [1.4565])
+	
